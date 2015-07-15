@@ -20,7 +20,7 @@
     "url": "http://github.com/react-component/rc-collapse/issues"
   },
   "licenses": "MIT",
-  "main":"bundle/build.js",
+  "main":"./lib",
   "config": {
     "port": 8000
   },
