@@ -1,5 +1,3 @@
-'use strict';
-
 const { createClass, PropTypes, findDOMNode } = require('react');
 const classnames = require('classnames');
 const cssAnimation = require('css-animation');
@@ -93,9 +91,6 @@ module.exports = createClass({
     cssAnimation.style(el, {
       height: opacity ? 0 : scrollHeight
     }, () => {
-      const {
-          maxHeight,
-          } = this.props;
       el.style.height = opacity ? 0 : (maxHeight ? scrollHeight : 'auto');
       cssAnimation.setTransition(el, 'Property', '');
     });

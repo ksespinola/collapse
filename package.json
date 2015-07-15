@@ -20,11 +20,12 @@
     "url": "http://github.com/react-component/rc-collapse/issues"
   },
   "licenses": "MIT",
-  "main": "./lib/index",
+  "main": "./build/bundle.js",
   "config": {
     "port": 8000
   },
   "scripts": {
+    "webpack:build": "webpack --progress --colors",
     "build": "rc-tools run build",
     "precommit": "rc-tools run precommit",
     "less": "rc-tools run less",
@@ -40,6 +41,7 @@
     "babel-core": "^5.7.1",
     "babel-loader": "^5.3.2",
     "expect.js": "0.3.x",
+    "jsx-loader": "^0.13.2",
     "node-dev": "2.x",
     "node-libs-browser": "^0.5.2",
     "precommit-hook": "1.x",
@@ -55,6 +57,7 @@
   ],
   "dependencies": {
     "classnames": "^2.1.2",
-    "css-animation": "~1.0.5"
+    "css-animation": "~1.0.5",
+    "react": "^0.13.3"
   }
 }
