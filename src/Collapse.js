@@ -1,7 +1,7 @@
 'use strict';
 
 const { PropTypes, createClass, Children } = require('react');
-const CollapsePanel = require('./Panel');
+const CollapsePanel = require('./Panel.js');
 
 if (!Array.isArray) {
   Array.isArray = function(arg) {
@@ -24,7 +24,8 @@ module.exports = createClass({
       PropTypes.arrayOf(PropTypes.string)
     ]),
     onChange: PropTypes.func,
-    accordion: PropTypes.bool
+    accordion: PropTypes.bool,
+    maxHeight:PropTypes.number
   },
 
   getDefaultProps() {
@@ -100,6 +101,7 @@ module.exports = createClass({
       // If there is no key provide, use the panel order as default key
       let key = child.key || i;
       let header = child.props.header;
+      let maxHeight = child.props.maxHeight;
       let isActive = false;
       if (accordion) {
         isActive = !activeKey ? !i : activeKey === key;
@@ -112,9 +114,11 @@ module.exports = createClass({
         header,
         isActive,
         prefixCls,
+        maxHeight,
         children: child.props.children,
         onItemClick: this.handleClickItem(key).bind(this)
       };
+
 
       return <CollapsePanel {...props} />;
     });

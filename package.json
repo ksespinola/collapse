@@ -37,13 +37,18 @@
     "browser-test-cover": "node --harmony node_modules/.bin/rc-tools run browser-test-cover"
   },
   "devDependencies": {
+    "babel-core": "^5.7.1",
+    "babel-loader": "^5.3.2",
     "expect.js": "0.3.x",
     "node-dev": "2.x",
+    "node-libs-browser": "^0.5.2",
     "precommit-hook": "1.x",
     "rc-server": "3.x",
     "rc-tools": "3.x",
     "react": "0.13.x",
-    "string.prototype.repeat": "^0.2.0"
+    "react-hot-loader": "^1.2.8",
+    "string.prototype.repeat": "^0.2.0",
+    "webpack": "^1.10.1"
   },
   "precommit": [
     "precommit"

@@ -16,7 +16,8 @@ module.exports = createClass({
       PropTypes.node
     ]),
     isActive: PropTypes.bool,
-    onItemClick: PropTypes.func
+    onItemClick: PropTypes.func,
+    maxHeight:PropTypes.number
   },
 
   getInitialState() {
@@ -79,16 +80,23 @@ module.exports = createClass({
 
   _anim(opacity) {
     var el = findDOMNode(this.refs.content);
-    var scrollHeight = el.scrollHeight + 'px';
+    const{
+        maxHeight,
+        } = this.props;
+    var scrollHeight = `${maxHeight ? maxHeight : el.scrollHeight}px`;
 
     // start state
     el.style.height = opacity ? scrollHeight : 0;
 
+
     cssAnimation.setTransition(el, 'Property', 'height');
     cssAnimation.style(el, {
       height: opacity ? 0 : scrollHeight
-    }, function() {
-      el.style.height = opacity ? 0 : 'auto';
+    }, () => {
+      const {
+          maxHeight,
+          } = this.props;
+      el.style.height = opacity ? 0 : (maxHeight ? scrollHeight : 'auto');
       cssAnimation.setTransition(el, 'Property', '');
     });
   }
